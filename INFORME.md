@@ -9,14 +9,17 @@ UNUSED, USED, SLEEPING, RUNNABLE, RUNNING, ZOMBIE.
 
     USED: la función allocproc() busca procesos con estado UNUSED y les asigna un PID. Así inicializa el estado requerido para correr en el kernel, y su estado cambia a USED.
 
-    RUNNABLE: el primer proceso de usuario inicializado pasa a RUNNABLE por la función procinit(). Ese primer proceso puede generar otros procesos mediante llamadas a fork(), los cuales se generarán con el estado RUNNABLE. Además, si un proceso estaba en estado SLEEPING por esperar algún recurso o evento, la función wakeup() lo reactiva y actualiza su estado a RUNNABLE.
+     RUNNABLE: la función procinit() cambia el estado del primer proceso de usuario inicializado a RUNNABLE. Ese primer proceso puede generar otros procesos mediante llamadas a fork(), los cuales se generarán con el estado RUNNABLE. Además, si un proceso estaba en estado SLEEPING por esperar algún recurso o evento, la función wakeup() lo reactiva y actualiza su estado a RUNNABLE.
 
     RUNNING: el scheduler revisa la tabla de procesos, y al encontrar uno en estado RUNNABLE, adquiere el lock y cambia su estado a RUNNING, guardando el contexto del proceso a ejecutar, luego de lo cual se ejecuta.
+    
+    SLEEPING: la función sleep(void *chan, struct spinlock *lk) cambia el estado de RUNNABLE a SLEEPING. Es usada
+cuando se espera por eventos específicos.
 
     ZOMBIE: la función exit() se usa cuando un proceso ha terminado su ejecución. El proceso pasa al estado ZOMBIE, y la información del mismo sigue existiendo en la tabla de procesos, pudiendo ser recogida por el padre, el cual puede estar esperando gracias a la función wait() a que el hijo termine. Los hijos de este proceso se reasignan al primer proceso inicializado.
 
 3. ¿Qué es un quantum? ¿Dónde se define en el código? ¿Cuánto dura un quantum en xv6-riscv?
-Quantum es una medida que indica la cantidad de tiempo que se ejecuta un proceso. En el código aparece en trap.c, en la función clockintr(). El quantum en xv6 es de una décima de segundo o 100 ms.
+Quantum es una medida que indica la cantidad de tiempo que se ejecuta un proceso. En el código aparece en start.c, en la función timerinit(), medido como un intervalo de ciclos de reloj (1000000 por quantum). El quantum en xv6 es de una décima de segundo o 100 ms.
 
 4. ¿En qué parte del código ocurre el cambio de contexto en xv6-riscv? ¿En qué funciones un proceso deja de ser ejecutado? ¿En qué funciones se elige el nuevo proceso a ejecutar?
 El cambio de contexto ocurre en la función swtch(), que se encuentra aplicada en las funciones scheduler() y sched(). En scheduler, se busca constantemente programas que estén en estado RUNNABLE. Al encontrar uno, se cambia su estado a RUNNING y se hace un context switch con swtch(), luego de esta función parece ser que el proceso ya no está ejecutando. En sched() también se da un cambio de contexto, y esta función parece ser llamada cuando un programa cambia su estado de RUNNING a otro estado, ya sea por esperar I/O, por esperar la finalización de un evento u otra razón.
