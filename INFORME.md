@@ -38,7 +38,8 @@ No, al terminar el quantum, el programa se interrumpe y ocurre un cambio de cont
 
 Con el quantum original los experimentos arrojan los siguientes resultados:  
 
-`$ iobench 20 &`
+`$ iobench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 4   | [iobench]        | 51      | 27         | 20             |
@@ -62,7 +63,8 @@ Con el quantum original los experimentos arrojan los siguientes resultados:
 | 4   | [iobench]        | 53      | 370        | 19             |
 | 4   | [iobench]        | 53      | 389        | 19             |
 
-`$ iobench 20 &; iobench 20 &; iobench 20 &`
+`$ iobench 20 &; iobench 20 &; iobench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 9   | [iobench]        | 146     | 569        | 17             |
@@ -128,7 +130,8 @@ Con el quantum original los experimentos arrojan los siguientes resultados:
 
 
 
-`$ cpubench 20 &`
+`$ cpubench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 15  | [cpubench]       | 76690   | 1031       | 7              |
@@ -152,7 +155,8 @@ Con el quantum original los experimentos arrojan los siguientes resultados:
 | 15  | [cpubench]       | 76690   | 1156       | 7              |
 | 15  | [cpubench]       | 89472   | 1163       | 6              |
 
-`$ cpubench 20 &; cpubench 20 &; cpubench 20 &`
+`$ cpubench 20 &; cpubench 20 &; cpubench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 19  | [cpubench]       | stdout mezclado   |        | 7              |
@@ -216,7 +220,8 @@ Con el quantum original los experimentos arrojan los siguientes resultados:
 | 19  | [cpubench]       | 89472   | 1477       | 6              |
 | 19  | [cpubench]       | 76690   | 1483       | 7              |
 
-`iobench 20 &; cpubench 20 &; cpubench 20 &; cpubench 20 &`
+`iobench 20 &; cpubench 20 &; cpubench 20 &; cpubench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 10  | [cpubench]       | 89472   | 17         | 6              |
@@ -300,7 +305,8 @@ Con el quantum original los experimentos arrojan los siguientes resultados:
 | 5   | [iobench]        | 51      | 499        | 20             |
 | 5   | [iobench]        | 53      | 519        | 19             |
 
-`cpubench 20 &; iobench 20 &; iobench 20 &; iobench 20 &`
+`cpubench 20 &; iobench 20 &; iobench 20 &; iobench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 14  | [cpubench]      | 76690   | 2173       | 7              |
@@ -389,7 +395,8 @@ Con el quantum original los experimentos arrojan los siguientes resultados:
 
 Con el quantum 10 veces más chico que el original los experimentos arrojan los siguientes resultados:  
 
-`$ iobench 20 &`
+`$ iobench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 4	  | [iobench]	| 5 |	454	 |  176 |
@@ -413,7 +420,8 @@ Con el quantum 10 veces más chico que el original los experimentos arrojan los 
 | 4	  | [iobench]	| 5 |	3625 |  	176 |
 | 4	  | [iobench]	| 5 |	3801 |  	176 |
 
-`$ iobench 20 &; iobench 20 &; iobench 20 &`
+`$ iobench 20 &; iobench 20 &; iobench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 8	| [iobench]	| 13	| 6001 |	74 |
@@ -477,7 +485,8 @@ Con el quantum 10 veces más chico que el original los experimentos arrojan los 
 | 11 | 	[iobench] | 	13 | 	7394| 	78|
 | 10 | 	[iobench] | 	12 | 	7403| 	79|
 
-`$ cpubench 20 &`
+`$ cpubench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 14 |	[cpubench] |	7780 |	8990	| 69 |
@@ -501,7 +510,8 @@ Con el quantum 10 veces más chico que el original los experimentos arrojan los 
 | 14 |	[cpubench] |	8012 |	10204| 	67 |
 | 14 |	[cpubench] |	8012 |	10271| 	67 |
 
-`$ cpubench 20 &; cpubench 20 &; cpubench 20 &`
+`$ cpubench 20 &; cpubench 20 &; cpubench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 21 |	[cpubench] |	8012 |	11901 |	67 |
@@ -562,7 +572,8 @@ Con el quantum 10 veces más chico que el original los experimentos arrojan los 
 | 18 |	[cpubench] |	8133 |	13216 |	66 |
 
 
-`iobench 20 &; cpubench 20 &; cpubench 20 &; cpubench 20 &`
+`iobench 20 &; cpubench 20 &; cpubench 20 &; cpubench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 | 30 |	[cpubench] |	8133 |	16532 |	66 |
@@ -643,7 +654,8 @@ Con el quantum 10 veces más chico que el original los experimentos arrojan los 
 | 25 |	[iobench]	|5	| 209 |96	186 |
 | 25 |	[iobench]	|5	| 211 |82	193 |
 
-` |cpubench 20 &; iobench 20 &; iobench 20 &; iobench 20 &`
+` |cpubench 20 &; iobench 20 &; iobench 20 &; iobench 20 &`  
+
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
 |34	| [cpubench] |	7456 |	24063 |	72 |
@@ -728,7 +740,32 @@ Con el quantum 10 veces más chico que el original los experimentos arrojan los 
 | 38 |	[iobench]	| 5 | 	26993 |	173 |
 
 1. Describa los parámetros de los programas cpubench e iobench para este experimento (o sea, los define al principio y el valor de N. Tener en cuenta que podrían cambiar en experimentos futuros, pero que si lo hacen los resultados ya no serán comparables).
+
+Métrica de Cpubench = total_cpu_kops / elapsed_ticks. N = 20.  
+Métrica de IObench = total_iops / elapsed_ticks. N = 20.  
+
 2. ¿Los procesos se ejecutan en paralelo? ¿En promedio, qué proceso o procesos se ejecutan primero? Hacer una observación cualitativa.
+
+Como ejecutamos xv6 con un único procesador `make CPU=1 qemu`, no existe un paralelismo real. Los procesos se van turnando en RR en el único CPU.
+
+Podemos determinar que se ejecutan primero los procesos CPU-Bound, remitiéndonos a las pruebas del último y penúltimo test.
+
 3. ¿Cambia el rendimiento de los procesos iobound con respecto a la cantidad y tipo de procesos que se estén ejecutando en paralelo? ¿Por qué?
+
+Según los tests realizados, los procesos iobound aumentan directamente que toman solamente cuando están en simultáneo a otros procesos iobound, no son afectados por la concurrencia de procesos cpubound.
+
+Sucede por una cuestión de qué recursos son los que utiliza más. Los procesos iobound compiten entre ellos por el disco (aunque en xv6, en este modo de prueba, el "disco" está en la ram), y los cpubound por el CPU.  
+
 4. ¿Cambia el rendimiento de los procesos cpubound con respecto a la cantidad y tipo de procesos que se estén ejecutando en paralelo? ¿Por qué?
+
+Al contrario que los procesos iobound, no se ven afectados practicamente por la concurrencia con otros procesos cpubound, no hay diferencias notables.
+
+Sin embargo sí puede percibirse que hay un aumento del rendimiento en los procesos cpu-bound cuando están intercalados con procesos iobound. Probablemente porque logran un mejor equilibrio en el sistema en cuánto al tiempo de uso del CPU y los I/O.  
+
 5. ¿Es adecuado comparar la cantidad de operaciones de cpu con la cantidad de operaciones iobound?
+
+Probablemente haya una manera mejor. Con esta métrica se puede tener una visión general del planificador. 
+
+## todo
+
+Probar otras métricas como el turnaround_time, response_time y otras a pensar.
