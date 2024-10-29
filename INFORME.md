@@ -749,9 +749,10 @@ Métrica de IObench = total_iops / elapsed_ticks. N = 20.
 
 2. ¿Los procesos se ejecutan en paralelo? ¿En promedio, qué proceso o procesos se ejecutan primero? Hacer una observación cualitativa.
 
-Como ejecutamos xv6 con un único procesador `make CPU=1 qemu`, no existe un paralelismo real. Los procesos se van turnando en RR en el único CPU.
+Al ejecutar xv6 en un único procesador mediante el comando make CPU=1 qemu, no hay paralelismo en el sentido de que los procesos no pueden ejecutarse simultáneamente; un solo CPU puede manejar únicamente un proceso a la vez. Sin embargo, el planificador de tipo Round Robin (RR) permite que la ejecución de estos procesos se multiplexe en el tiempo. Esto significa que el CPU alterna entre los procesos, asignando a cada uno un quantum de tiempo igual. Como el CPU se distribuye entre varios procesos, da la impresión de que varios procesos están activos al mismo tiempo, es decir que son paralelos.
 
-Podemos determinar que se ejecutan primero los procesos CPU-Bound, remitiéndonos a las pruebas del último y penúltimo test.
+Los procesos se ejecutan por orden de llegada. Esto puede verse en el start tick de cada proceso en los tests. 
+Al ejecutar cpubench e iobench en segundo plano, el iobench queda en espera -en estado sleeping- hasta que cpubench termina su ejecucion. Además, si hay otros procesos iobench en segundo plano, como el archivo de lectura y escritura es el mismo para cada llamada iobench N &, deben esperar a que el primero libere dicho archivo para ejecutarse. Esto se evidencia en los tests, ya que el primer proceso iobound planificado se queda esperando la disponibilidad del recurso IO, por lo que devuelve un número alto de interrupciones (representado por todos los demás procesos que fueron planificados después de que comenzó la ejecución del proceso IO de marras).
 
 3. ¿Cambia el rendimiento de los procesos iobound con respecto a la cantidad y tipo de procesos que se estén ejecutando en paralelo? ¿Por qué?
 
