@@ -60,9 +60,9 @@ void cpubench(int N, int pid) {
     end_tick = uptime();
     elapsed_ticks = end_tick - start_tick;
 
-    metric = total_cpu_kops / elapsed_ticks; // primeramente podriamos tomar la cantidad de lectoesctirutas por tick transcurrido
+    metric = (total_cpu_kops * 100) / elapsed_ticks;
     measurements[i] = metric;
-    printf("%d\t[cpubench]\t%d\t%d\t%d\n",
+    printf("| %d | [cpubench] | %d | %d | %d |\n",
            pid, metric, start_tick, elapsed_ticks);
   }
 }
