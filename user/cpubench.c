@@ -51,7 +51,9 @@ void cpubench(int N, int pid) {
   int *measurements = malloc(sizeof(int) * N);
 
   // Realizar N ciclos de medicion
-  for(int i = 0; i < N; ++i) {
+  printf("| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |\n");
+  printf("|-----|-------------------|--------|------------|---------------|\n");
+    for(int i = 0; i < N; ++i) {
     total_cpu_kops = 0;
     start_tick = uptime();
 

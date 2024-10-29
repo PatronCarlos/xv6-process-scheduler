@@ -53,6 +53,8 @@ iobench(int N, int pid)
 
   int *measurements = malloc(sizeof(int) * N);
 
+  printf("| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |\n");
+  printf("|-----|-------------------|--------|------------|---------------|\n");
   for (int i = 0; i < N; i++){
     start_tick = uptime();
 
