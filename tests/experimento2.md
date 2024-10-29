@@ -195,3 +195,164 @@ Como el iobench 20 demoraba mucho en el quantum de 1000, decidimos repetir los e
 | 34 | [cpubench] | 959 | 1620099 | 55962 |
 | 34 | [cpubench] | 1331 | 1676169 | 40330 |
 
+## Hardware 2: 
+### Quantum a 10000
+
+`$ iobench 4 &`  
+
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 4 | [iobench] | 291 | 6634 | 3511 |
+| 4 | [iobench] | 293 | 10153 | 3486 |
+| 4 | [iobench] | 297 | 13649 | 3447 |
+| 4 | [iobench] | 305 | 17103 | 3350 |
+
+
+`iobench 4 &; iobench 4 &; iobench 4 &`  
+
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+ | 10 | [iobench] | 271 | 22255 | 3766 |
+| 9 | [iobench] | 266 | 22250 | 3836 |
+| 7 | [iobench] | 263 | 22249 | 3883 |
+| 7 | [iobench] | 308 | 26154 | 3324 |
+| 9 | [iobench] | 302 | 26110 | 3389 |
+| 10 | [iobench] | 293 | 26048 | 3492 |
+| 9 | [iobench] | 288 | 29526 | 3548 |
+| 7 | [iobench] | 266 | 29504 | 3843 |
+| 10 | [iobench] | 259 | 29563 | 3950 |
+| 9 | [iobench] | 297 | 33097 | 3437 |
+| 7 | [iobench] | 296 | 33363 | 3449 |
+| 10 | [iobench] | 271 | 33532 | 3775 |
+
+`cpubench 4 &` 
+
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 12 | [cpubench] | 27872 | 80169 | 1926 |
+| 12 | [cpubench] | 27887 | 82107 | 1925 |
+| 12 | [cpubench] | 27930 | 84042 | 1922 |
+| 12 | [cpubench] | 27930 | 85973 | 1922 |
+
+`cpubench 4 &; cpubench 4 &; cpubench 4 &`  
+
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 15 | [cpubench] | 10060 | 97076 | 5336 |
+| 17 | [cpubench] | 9998 | 97083 | 5369 |
+| 18 | [cpubench] | 9424 | 97093 | 5696 |
+| 15 | [cpubench] | 10009 | 102442  5363 |
+| 18 | [cpubench] | 9352 | 102819 | 5740 |
+| 15 | [cpubench] | 10004 | 107830 | 5366 |
+| 17 | [cpubench] | 9954 | 107849 | 5393 |
+| 18 | [cpubench] | 9411 | 108589 | 5704 |
+
+| 18 | [cpubench] | 11287 | 114320 | 4756 |
+
+`cpubench 4 &; cpubench 4 &; cpubench 4 &`  
+
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 21 | [cpubench] | 10161 | 131775 | 5283 |
+| 23 | [cpubench] | 10064 | 131782 | 5334 |
+| 24 | [cpubench] | 9310 | 131795 | 5766 |
+| 21 | [cpubench] | 10070 | 137085 | 5331 |
+| 23 | [cpubench] | 10070 | 137143 | 5331 |
+| 24 | [cpubench] | 9383 | 137588 | 5721 |
+| 21 | [cpubench] | 10138 | 142440 | 5295 |
+| 23 | [cpubench] | 10047 | 142501 | 5343 |
+| 24 | [cpubench] | 9446 | 143333 | 5683 |
+| 21 | [cpubench] | 10070 | 147756 | 5331 |
+| 23 | [cpubench] | 10203 | 147860 | 5261 |
+| 24 | [cpubench] | 11557 | 149040 | 4645 |
+
+`iobench 4 &; cpubench 4 &; cpubench 4 &; cpubench 4 &`  
+
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 31 | [cpubench] | 7810 | 169206 | 6873  |
+| 29 | [cpubench] | 7709 | 169202 | 6963  |
+| 32 | [cpubench] | 7017 | 169221 | 7650  |
+| 40 | [cpubench] | 4884 | 173243 | 10991 |
+| 39 | [cpubench] | 4787 | 173241 | 11214 |
+| 31 | [cpubench] | 4925 | 176123 | 10900 |
+| 29 | [cpubench] | 4905 | 176214 | 10944 |
+| 32 | [cpubench] | 4628 | 176933 | 11599 |
+| 40 | [cpubench] | 4925 | 184284 | 10899 |
+| 39 | [cpubench] | 4807 | 184504 | 11166 |
+| 35 | [iobench]  | 42  | 173192 | 24141 |
+| 37 | [cpubench] | 2086 | 173199 | 25733 |
+| 32 | [cpubench] | 4540 | 188586 | 11823 |
+| 40 | [cpubench] | 4845 | 195232 | 11080 |
+| 39 | [cpubench] | 4733 | 195713 | 11342 |
+| 31 | [cpubench] | 4915 | 198269 | 10921 |
+| 29 | [cpubench] | 4870 | 198262 | 11023 |
+| 32 | [cpubench] | 5008 | 200464 | 10718 |
+| 40 | [cpubench] | 6953 | 206362 | 7720 |
+| 39 | [cpubench] | 7466 | 207105 | 7190 |
+| 35 | [iobench]  | 58   | 197382 | 17576 |
+| 37 | [cpubench] | 3231 | 199055 | 16610 |
+| 35 | [iobench]  | 210  | 214974 | 4856 |
+| 37 | [cpubench] | 10369 | 215679 | 5177 |
+| 35 | [iobench]  | 208 | 219848 | 4911 |
+| 37 | [cpubench] | 12516 | 220883 | 4289 |
+
+
+`cpubench 4 &; iobench 4 &; iobench 4 &; iobench 4 &`  
+
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 45 | [iobench] | 251 | 244942 | 4078 |
+| 47 | [iobench] | 245 | 244947 | 4171 |
+| 48 | [iobench] | 176 | 244956 | 5814 |
+| 43 | [cpubench] | 8664 | 244930 | 6196 |
+| 45 | [iobench] | 266 | 249048 | 3838 |
+| 47 | [iobench] | 239 | 249153 | 4273 |
+| 48 | [iobench] | 208 | 250808 | 4921 |
+| 45 | [iobench] | 277 | 252908 | 3694 |
+| 43 | [cpubench] | 8622 | 251144 | 6226 |
+| 47 | [iobench] | 212 | 253442 | 4828 |
+| 45 | [iobench] | 264 | 256616 | 3866 |
+| 48 | [iobench] | 193 | 255763 | 5281 |
+| 47 | [iobench] | 254 | 258300 | 4030 |
+| 43 | [cpubench] | 9033 | 257399 | 5943 |
+| 48 | [iobench] | 237 | 261082 | 4313 |
+| 43 | [cpubench] | 16844 | 263353 | 3187 |
+
+### Quantum a 1000
+
+`iobench 4 &`  
+
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|-------------------|--------|------------|---------------|
+| 8 | [iobench] | 28 | 76447 | 35464 |
+| 8 | [iobench] | 28 | 112011 | 35940 |
+| 8 | [iobench] | 28 | 148126 | 36352 |
+| 8 | [iobench] | 28 | 184668 | 36092 |
+
+`$ iobench 4 &; iobench 4 &; iobench 4 &`  
+
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|-------------------|--------|------------|---------------|
+| 5 | [iobench] | 25 | 11632 | 39690 |
+| 8 | [iobench] | 24 | 11877 | 41180 |
+| 7 | [iobench] | 24 | 11801 | 42452 |
+| 5 | [iobench] | 25 | 51643 | 40355 |
+| 8 | [iobench] | 26 | 53598 | 38874 |
+| 7 | [iobench] | 24 | 54634 | 41791 |
+| 8 | [iobench] | 29 | 92829 | 34804 |
+| 5 | [iobench] | 28 | 92347 | 36469 |
+| 7 | [iobench] | 30 | 96642 | 33658 |
+| 8 | [iobench] | 36 | 127750 | 28239 |
+| 5 | [iobench] | 33 | 129057 | 30219 |
+| 7 | [iobench] | 34 | 130430 | 29799 |
+
+`cpubench 4 &`
+
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|-------------------|--------|------------|---------------|
+| 10 | [cpubench] | 608 | 352739 | 88235 |
+| 10 | [cpubench] | 465 | 441220 | 115382 |
+| 10 | [cpubench] | 644 | 556797 | 83322 |
+| 10 | [cpubench] | 700 | 640341 | 76605 |
+
