@@ -387,6 +387,346 @@ Con el quantum original los experimentos arrojan los siguientes resultados:
 | 19  | [iobench]       | 34      | 2537       | 30             |
 | 19  | [iobench]       | 34      | 2558       | 30             |
 
+Con el quantum 10 veces más chico que el original los experimentos arrojan los siguientes resultados:  
+
+`$ iobench 20 &`
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 4	  | [iobench]	| 5 |	454	 |  176 |
+| 4	  | [iobench]	| 5 |	630	 |  175 |
+| 4	  | [iobench]	| 5 |	806	 |  176 |
+| 4	  | [iobench]	| 5 |	983	 |  174 |
+| 4	  | [iobench]	| 5 |	1157 |  	176 |
+| 4	  | [iobench]	| 5 |	1333 |  	177 |
+| 4	  | [iobench]	| 5 |	1510 |  	176 |
+| 4	  | [iobench]	| 5 |	1687 |  	175 |
+| 4	  | [iobench]	| 5 |	1863 |  	175 |
+| 4	  | [iobench]	| 5 |	2039 |  	175 |
+| 4	  | [iobench]	| 5 |	2214 |  	175 |
+| 4	  | [iobench]	| 5 |	2390 |  	177 |
+| 4	  | [iobench]	| 5 |	2567 |  	177 |
+| 4	  | [iobench]	| 5 |	2744 |  	177 |
+| 4	  | [iobench]	| 5 |	2921 |  	175 |
+| 4	  | [iobench]	| 5 |	3096 |  	175 |
+| 4	  | [iobench]	| 5 |	3271 |  	177 |
+| 4	  | [iobench]	| 5 |	3448 |  	176 |
+| 4	  | [iobench]	| 5 |	3625 |  	176 |
+| 4	  | [iobench]	| 5 |	3801 |  	176 |
+
+`$ iobench 20 &; iobench 20 &; iobench 20 &`
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 8	| [iobench]	| 13	| 6001 |	74 |
+| 10 | 	[iobench] | 	13 | 	6001| 	74|
+| 11 | 	[iobench] | 	13 | 	6001| 	76|
+| 8	 | [iobench]	 | 13	 | 6075	| 74 |
+| 11 | 	[iobench] | 	13 | 	6077| 	74|
+| 10 | 	[iobench] | 	13 | 	6076| 	75|
+| 8	 | [iobench]	 | 15	 | 6150	| 68 |
+| 10 | 	[iobench] | 	14 | 	6151| 	71|
+| 11 | 	[iobench] | 	14 | 	6151| 	71|
+| 8	 | [iobench]	 | 14	 | 6219	| 73 |
+| 11 | 	[iobench] | 	14 | 	6222| 	71|
+| 10 | 	[iobench] | 	14 | 	6222| 	72|
+| 8	 | [iobench]	 | 13	 | 6292	| 74|
+| 11 | 	[iobench] | 	13 | 	6293| 	75|
+| 10 | 	[iobench] | 	13 | 	6295| 	74|
+| 8	 | [iobench]	 | 15	 | 6367	| 68|
+| 11 | 	[iobench] | 	13 | 	6368| 	74|
+| 10 | 	[iobench] | 	14 | 	6369| 	73|
+| 8	 | [iobench]	 | 14	 | 6436	| 72|
+| 11 | 	[iobench] | 	13 | 	6442| 	76|
+| 10 | 	[iobench] | 	13 | 	6443| 	77|
+| 8	 | [iobench]	 | 13	 | 6508	| 78|
+| 11 | 	[iobench] | 	13 | 	6519| 	76|
+| 10 | 	[iobench] | 	12 | 	6520| 	81|
+| 8	 | [iobench]	 | 13	 | 6587	| 74|
+| 11 | 	[iobench] | 	13 | 	6595| 	74|
+| 10 | 	[iobench] | 	14 | 	6601| 	71|
+| 8	 | [iobench]	 | 13	 | 6661	| 76|
+| 11 | 	[iobench] | 	13 | 	6669| 	75|
+| 10 | 	[iobench] | 	13 | 	6672| 	76|
+| 8	 | [iobench]	 | 12	 | 6737	| 79|
+| 11 | 	[iobench] | 	13 | 	6744| 	76|
+| 10 | 	[iobench] | 	13 | 	6748| 	74|
+| 8	 | [iobench]	 | 14	 | 6816	| 71|
+| 11 | 	[iobench] | 	14 | 	6820| 	73|
+| 10 | 	[iobench] | 	14 | 	6823| 	72|
+| 8	 | [iobench]	 | 13	 | 6888	| 76|
+| 11 | 	[iobench] | 	13 | 	6893| 	76|
+| 10 | 	[iobench] | 	13 | 	6895| 	74|
+| 8	 | [iobench]	 | 14	 | 6964	| 70|
+| 10 | 	[iobench] | 	15 | 	6970| 	67|
+| 11 | 	[iobench] | 	14 | 	6969| 	69|
+| 8	 | [iobench]	 | 14	 | 7034	| 71|
+| 10 | 	[iobench] | 	14 | 	7038| 	69|
+| 11 | 	[iobench] | 	14 | 	7038| 	70|
+| 8	 | [iobench]	 | 14	 | 7105	| 69|
+| 10 | 	[iobench] | 	14 | 	7107| 	69|
+| 11 | 	[iobench] | 	15 | 	7109| 	68|
+| 8	 | [iobench]	 | 15	 | 7174	| 67|
+| 11 | 	[iobench] | 	15 | 	7178| 	67|
+| 10 | 	[iobench] | 	14 | 	7177| 	69|
+| 8	 | [iobench]	 | 14	 | 7241	| 69|
+| 11 | 	[iobench] | 	14 | 	7245| 	70|
+| 10 | 	[iobench] | 	14 | 	7246| 	71|
+| 8	 | [iobench]	 | 13	 | 7310	| 77|
+| 11 | 	[iobench] | 	12 | 	7315| 	79|
+| 10 | 	[iobench] | 	12 | 	7317| 	85|
+| 8	 | [iobench]	 | 12	 | 7388	| 81|
+| 11 | 	[iobench] | 	13 | 	7394| 	78|
+| 10 | 	[iobench] | 	12 | 	7403| 	79|
+
+`$ cpubench 20 &`
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 14 |	[cpubench] |	7780 |	8990	| 69 |
+| 14 |	[cpubench] |	8012 |	9059	| 67 |
+| 14 |	[cpubench] |	8012 |	9127	| 67 |
+| 14 |	[cpubench] |	8012 |	9194	| 67 |
+| 14 |	[cpubench] |	8012 |	9262	| 67 |
+| 14 |	[cpubench] |	8012 |	9329	| 67 |
+| 14 |	[cpubench] |	8012 |	9396	| 67 |
+| 14 |	[cpubench] |	8012 |	9464	| 67 |
+| 14 |	[cpubench] |	8012 |	9531	| 67 |
+| 14 |	[cpubench] |	8012 |	9598	| 67 |
+| 14 |	[cpubench] |	8012 |	9666	| 67 |
+| 14 |	[cpubench] |	8012 |	9733	| 67 |
+| 14 |	[cpubench] |	8012 |	9800	| 67 |
+| 14 |	[cpubench] |	8012 |	9868	| 67 |
+| 14 |	[cpubench] |	8012 |	9935	| 67 |
+| 14 |	[cpubench] |	8012 |	10002| 	67 |
+| 14 |	[cpubench] |	8133 |	10070| 	66 |
+| 14 |	[cpubench] |	8012 |	10137| 	67 |
+| 14 |	[cpubench] |	8012 |	10204| 	67 |
+| 14 |	[cpubench] |	8012 |	10271| 	67 |
+
+`$ cpubench 20 &; cpubench 20 &; cpubench 20 &`
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 21 |	[cpubench] |	8012 |	11901 |	67 |
+| 20 |	[cpubench] |	8133 |	11968 |	66 |
+| 18 |	[cpubench] |	8012 |	11968 |	67 |
+| 21 |	[cpubench] |	7894 |	11969 |	68 |
+| 20 |	[cpubench] |	8012 |	12034 |	67 |
+| 18 |	[cpubench] |	8012 |	12035 |	67 |
+| 21 |	[cpubench] |	8133 |	12038 |	66 |
+| 20 |	[cpubench] |	8133 |	12101 |	66 |
+| 18 |	[cpubench] |	8012 |	12102 |	67 |
+| 21 |	[cpubench] |	8012 |	12104 |	67 |
+| 20 |	[cpubench] |	8012 |	12167 |	67 |
+| 18 |	[cpubench] |	8012 |	12169 |	67 |
+| 21 |	[cpubench] |	8133 |	12171 |	66 |
+| 20 |	[cpubench] |	8133 |	12234 |	66 |
+| 18 |	[cpubench] |	8012 |	12236 |	67 |
+| 21 |	[cpubench] |	8012 |	12237 |	67 |
+| 20 |	[cpubench] |	8133 |	12300 |	66 |
+| 21 |	[cpubench] |	8133 |	12304 |	66 |
+| 18 |	[cpubench] |	5710 |	12304 |	94 |
+| 20 |	[cpubench] |	8133 |	12367 |	66 |
+| 21 |	[cpubench] |	8012 |	12370 |	67 |
+| 18 |	[cpubench] |	8133 |	12399 |	66 |
+| 20 |	[cpubench] |	8012 |	12434 |	67 |
+| 21 |	[cpubench] |	8133 |	12437 |	66 |
+| 18 |	[cpubench] |	8133 |	12465 |	66 |
+| 20 |	[cpubench] |	8012 |	12501 |	67 |
+| 21 |	[cpubench] |	8133 |	12504 |	66 |
+| 18 |	[cpubench] |	8133 |	12532 |	66 |
+| 20 |	[cpubench] |	8012 |	12568 |	67 |
+| 21 |	[cpubench] |	8133 |	12570 |	66 |
+| 18 |	[cpubench] |	8133 |	12598 |	66 |
+| 20 |	[cpubench] |	8012 |	12635 |	67 |
+| 21 |	[cpubench] |	8133 |	12637 |	66 |
+| 18 |	[cpubench] |	8133 |	12665 |	66 |
+| 18 |	[cpubench] |	8133 |	12731 |	66 |
+| 21 |	[cpubench] |	8133 |	12770 |	66 |
+| 20 |	[cpubench] |	8012 |	12770 |	67 |
+| 18 |	[cpubench] |	7254 |	12798 |	74 |
+| 21 |	[cpubench] |	8012 |	12836 |	67 |
+| 20 |	[cpubench] |	8012 |	12837 |	67 |
+| 18 |	[cpubench] |	8012 |	12872 |	67 |
+| 21 |	[cpubench] |	8133 |	12903 |	66 |
+| 20 |	[cpubench] |	8012 |	12904 |	67 |
+| 18 |	[cpubench] |	6971 |	12939 |	77 |
+| 21 |	[cpubench] |	8133 |	12970 |	66 |
+| 20 |	[cpubench] |	8012 |	12971 |	67 |
+| 18 |	[cpubench] |	8133 |	13016 |	66 |
+| 21 |	[cpubench] |	8133 |	13036 |	66 |
+| 20 |	[cpubench] |	8012 |	13038 |	67 |
+| 18 |	[cpubench] |	8012 |	13082 |	67 |
+| 21 |	[cpubench] |	8133 |	13103 |	66 |
+| 20 |	[cpubench] |	8012 |	13105 |	67 |
+| 18 |	[cpubench] |	8133 |	13149 |	66 |
+| 21 |	[cpubench] |	7561 |	13169 |	71 |
+| 20 |	[cpubench] |	7669 |	13173 |	70 |
+| 18 |	[cpubench] |	8133 |	13216 |	66 |
+
+
+`iobench 20 &; cpubench 20 &; cpubench 20 &; cpubench 20 &`
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+| 30 |	[cpubench] |	8133 |	16532 |	66 |
+| 27 |	[cpubench] |	7894 |	16533 |	68 |
+| 29 |	[cpubench] |	6882 |	16533 |	78 |
+| 30 |	[cpubench] |	8012 |	16599 |	67 |
+| 27 |	[cpubench] |	7894 |	16602 |	68 |
+| 29 |	[cpubench] |	7780 |	16611 |	69 |
+| 30 |	[cpubench] |	8012 |	16666 |	67 |
+| 27 |	[cpubench] |	7780 |	16670 |	69 |
+| 29 |	[cpubench] |	7561 |	16680 |	71 |
+| 30 |	[cpubench] |	8012 |	16733 |	67 |
+| 27 |	[cpubench] |	7894 |	16740 |	68 |
+| 29 |	[cpubench] |	7561 |	16751 |	71 |
+| 30 |	[cpubench] |	8012 |	16801 |	67 |
+| 27 |	[cpubench] |	7780 |	16808 |	69 |
+| 29 |	[cpubench] |	7780 |	16823 |	69 |
+| 30 |	[cpubench] |	7894 |	16869 |	68 |
+| 27 |	[cpubench] |	7780 |	16878 |	69 |
+| 29 |	[cpubench] |	7780 |	16892 |	69 |
+| 30 |	[cpubench] |	7561 |	16937 |	71 |
+| 27 |	[cpubench] |	7780 |	16947 |	69 |
+| 29 |	[cpubench] |	7561 |	16961 |	71 |
+| 30 |	[cpubench] |	7063 |	17008 |	76 |
+| 27 |	[cpubench] |	7669 |	17016 |	70 |
+| 29 |	[cpubench] |	7780 |	17033 |	69 |
+| 30 |	[cpubench] |	7780 |	17085 |	69 |
+| 27 |	[cpubench] |	7894 |	17087 |	68 |
+| 29 |	[cpubench] |	7561 |	17102 |	71 |
+| 30 |	[cpubench] |	7780 |	17154 |	69 |
+| 27 |	[cpubench] |	7669 |	17155 |	70 |
+| 29 |	[cpubench] |	7456 |	17173 |	72 |
+| 30 |	[cpubench] |	8012 |	17223 |	67 |
+| 27 |	[cpubench] |	7780 |	17225 |	69 |
+| 29 |	[cpubench] |	7669 |	17245 |	70 |
+| 30 |	[cpubench] |	7894 |	17291 |	68 |
+| 27 |	[cpubench] |	7780 |	17294 |	69 |
+| 29 |	[cpubench] |	7780 |	17315 |	69 |
+| 30 |	[cpubench] |	7894 |	17359 |	68 |
+| 27 |	[cpubench] |	7669 |	17363 |	70 |
+| 29 |	[cpubench] |	7669 |	17385 |	70 |
+| 30 |	[cpubench] |	7669 |	17427 |	70 |
+| 27 |	[cpubench] |	7669 |	17433 |	70 |
+| 29 |	[cpubench] |	7780 |	17455 |	69 |
+| 30 |	[cpubench] |	8012 |	17497 |	67 |
+| 27 |	[cpubench] |	7780 |	17504 |	69 |
+| 29 |	[cpubench] |	7780 |	17525 |	69 |
+| 30 |	[cpubench] |	7894 |	17565 |	68 |
+| 27 |	[cpubench] |	7561 |	17573 |	71 |
+| 29 |	[cpubench] |	7780 |	17594 |	69 |
+| 30 |	[cpubench] |	7780 |	17633 |	69 |
+| 27 |	[cpubench] |	7894 |	17645 |	68 |
+| 29 |	[cpubench] |	7561 |	17664 |	71 |
+| 30 |	[cpubench] |	7669 |	17702 |	70 |
+| 27 |	[cpubench] |	7669 |	17714 |	70 |
+| 29 |	[cpubench] |	7669 |	17736 |	70 |
+| 30 |	[cpubench] |	7780 |	17773 |	69 |
+| 27 |	[cpubench] |	7669 |	17784 |	70 |
+| 29 |	[cpubench] |	7456 |	17806 |	72 |
+| 25 |	[iobench]	|0	| 164 |64	148 |7 |
+| 25 |	[iobench]	|5	| 179 |51	182 |
+| 25 |	[iobench]	|5	| 181 |34	181 |
+| 25 |	[iobench]	|5	| 183 |15	179 |
+| 25 |	[iobench]	|5	| 184 |95	174 |
+| 25 |	[iobench]	|5	| 186 |69	179 |
+| 25 |	[iobench]	|5	| 188 |48	173 |
+| 25 |	[iobench]	|5	| 190 |22	172 |
+| 25 |	[iobench]	|5	| 191 |94	174 |
+| 25 |	[iobench]	|5	| 193 |68	174 |
+| 25 |	[iobench]	|5	| 195 |43	177 |
+| 25 |	[iobench]	|5	| 197 |20	187 |
+| 25 |	[iobench]	|5	| 199 |07	176 |
+| 25 |	[iobench]	|5	| 200 |83	179 |
+| 25 |	[iobench]	|5	| 202 |63	184 |
+| 25 |	[iobench]	|5	| 204 |47	184 |
+| 25 |	[iobench]	|5	| 206 |31	181 |
+| 25 |	[iobench]	|5	| 208 |12	184 |
+| 25 |	[iobench]	|5	| 209 |96	186 |
+| 25 |	[iobench]	|5	| 211 |82	193 |
+
+` |cpubench 20 &; iobench 20 &; iobench 20 &; iobench 20 &`
+| PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
+|-----|------------------|---------|------------|----------------|
+|34	| [cpubench] |	7456 |	24063 |	72 |
+| 34 |	[cpubench]	 | 7669	|24136|	70|
+| 39 |	[iobench]	| 5 | 	24064	|187|
+| 36 |	[iobench]	| 5 | 	24064	|192|
+| 34 |	[cpubench] 	 | 7456|	24206|	72|
+| 34 |	[cpubench] 	 | 7669|	24278|	70|
+| 39 |	[iobench]	| 7 | 	24251	|139|
+| 36 |	[iobench]	| 6 | 	24256	|159|
+| 34 |	[cpubench] 	 | 7561	|24348|	71|
+| 34 |	[cpubench] 	 | 7669	|24419|	70|
+| 38 |	[iobench]	| 2 | 	24064|	427|
+| 39 |	[iobench]	| 7 | 	24390|	135|
+| 34 |	[cpubench] 	 | 7561	|24490|	71|
+| 36 |	[iobench]	| 6 | 	24416|	170|
+| 34 |	[cpubench] 	 | 7456	|24561|	72|
+| 39 |	[iobench]	| 7 | 	24526|	138|
+| 38 |	[iobench]	| 5 | 	24492	|196|
+| 34 |	[cpubench] 	 | 7456	|24633|	72|
+| 36 |	[iobench]	| 6 | 	24586|	169|
+| 34 |	[cpubench] 	 | 7669	|24706|	70|
+| 39 |	[iobench]	| 6 | 	24665|	160|
+| 34 |	[cpubench] 	 | 7669	|24776|	70|
+| 36 |	[iobench]	| 7 | 	24755|	138|
+| 34 |	[cpubench] 	 | 7669|	24846|	70|
+| 39 |	[iobench]	| 6 | 	24825|	148|
+| 38 |	[iobench]	| 3 | 	24688|	289|
+| 34 |	[cpubench] 	 | 7561	|24916|	71|
+| 34 |	[cpubench] 	 | 7669	|24988|	70|
+| 36 |	[iobench]	| 5 | 	24893	194
+| 34 |	[cpubench] 	 | 7669	|25058|	70|
+| 39 |	[iobench]	| 5 | 	24973|	174|
+| 34 |	[cpubench] | 7669	| 25129	|70|
+| 36 |	[iobench]	| 7 | 	25087|	129|
+| 38 |	[iobench]	| 4 | 	24977|	240|
+| 34 |	[cpubench] 	 | 7456	|25199|	72|
+| 39 |	[iobench]	| 6 | 	25147|	149|
+| 34 |	[cpubench] 	 | 7669 |	25271 |	70 |
+| 34 |	[cpubench] 	 | 7780 |	25342 |	69 |
+| 36 |	[iobench]	| 5 | 	25216|	202 |
+| 39 |	[iobench]	| 7 | 	25297|	135 |
+| 34 |	[cpubench]  | 7669	| 25412 |	70|
+| 38 |	[iobench]	| 3 | 	25217 |	285 |
+| 36 |	[iobench]	| 8 | 	25418 |	123 |
+| 39 |	[iobench]	| 8 | 	25432 |	117 |
+| 38 |	[iobench]	| 12 |	25502 |	83 |
+| 36 |	[iobench]	| 12 |	25542 |	85 |
+| 39 |	[iobench]	| 12 |	25549 |	83 |
+| 38 |	[iobench]	| 11 |	25585 |	87 |
+| 36 |	[iobench]	| 11 |	25628 |	89 |
+| 39 |	[iobench]	| 10 |	25632 |	94 |
+| 38 |	[iobench]	| 11 |	25672 |	91 |
+| 36 |	[iobench]	| 12 |	25718 |	84 |
+| 39 |	[iobench]	| 12 |	25726 |	80 |
+| 38 |	[iobench]	| 11 |	25763 |	86 |
+| 36 |	[iobench]	| 11 |	25802 |	89 |
+| 39 |	[iobench]	| 11 |	25806 |	90 |
+| 38 |	[iobench]	| 11 |	25850 |	88 |
+| 36 |	[iobench]	| 11 |	25891 |	90 |
+| 39 |	[iobench]	| 12 |	25897 |	84 |
+| 38 |	[iobench]	| 12 |	25938 |	80 |
+| 36 |	[iobench]	| 13 |	25981 |	77 |
+| 39 |	[iobench]	| 13 |	25982 |	77 |
+| 38 |	[iobench]	| 12 |	26018 |	80 |
+| 36 |	[iobench]	| 12 |	26058 |	85 |
+| 39 |	[iobench]	| 12 |	26059 |	85 |
+| 38 |	[iobench]	| 12 |	26098 |	84 |
+| 36 |	[iobench]	| 13 |	26143 |	78 |
+| 39 |	[iobench]	| 12 |	26144 |	80 |
+| 38 |	[iobench]	| 12 |	26183 |	85 |
+| 36 |	[iobench]	| 11 |	26222 |	87 |
+| 39 |	[iobench]	| 11 |	26225 |	87 |
+| 38 |	[iobench]	| 11 |	26269 |	90 |
+| 36 |	[iobench]	| 12 |	26310 |	85 |
+| 39 |	[iobench]	| 11| 	26312 |	89 |
+| 38 |	[iobench]	| 8 | 	26359 |	126 |
+| 36 |	[iobench]	| 7 | 	26396 |	144 |
+| 38 |	[iobench]	| 6 | 	26485 |	157 |
+| 38 |	[iobench]	| 5 | 	26642 |	176 |
+| 38 |	[iobench]	| 5 | 	26818 |	174 |
+| 38 |	[iobench]	| 5 | 	26993 |	173 |
+
 1. Describa los parámetros de los programas cpubench e iobench para este experimento (o sea, los define al principio y el valor de N. Tener en cuenta que podrían cambiar en experimentos futuros, pero que si lo hacen los resultados ya no serán comparables).
 2. ¿Los procesos se ejecutan en paralelo? ¿En promedio, qué proceso o procesos se ejecutan primero? Hacer una observación cualitativa.
 3. ¿Cambia el rendimiento de los procesos iobound con respecto a la cantidad y tipo de procesos que se estén ejecutando en paralelo? ¿Por qué?
