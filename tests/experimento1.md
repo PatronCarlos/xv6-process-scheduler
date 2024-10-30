@@ -102,12 +102,12 @@
 
 ## Hardware 2:CPU Ryzen 3 3200G 3.6Ghz, RAM 32GB 3200Mhz
 ### Parámetros
-- interval = 100000  
-- N = 4  
-- metrica_cpu = (total_iops * 100) / elapsed_ticks  
+- interval = 100000 
+- N = 4 
+- metrica_cpu = (total_iops * 100) / elapsed_ticks 
 - metric_io = (total_cpu_kops * 1000) / elapsed_ticks 
 
-`$ iobench 4 &`  
+`$ iobench 4 &`
 
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|
@@ -117,7 +117,7 @@
 | 4 | [iobench] | 3806 | 2519 | 269 |
 
 
-`iobench 4 &; iobench 4 &; iobench 4 &`  
+`iobench 4 &; iobench 4 &; iobench 4 &` 
 
 | PID | Tipo de Procesos | Métrica | Start Tick | Elapsed Ticks |
 |-----|------------------|---------|------------|----------------|

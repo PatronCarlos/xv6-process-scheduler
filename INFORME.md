@@ -19,8 +19,7 @@ cuando se espera por eventos específicos.
     ZOMBIE: la función exit() se usa cuando un proceso ha terminado su ejecución. El proceso pasa al estado ZOMBIE, y la información del mismo sigue existiendo en la tabla de procesos, pudiendo ser recogida por el padre, el cual puede estar esperando gracias a la función wait() a que el hijo termine. Los hijos de este proceso se reasignan al primer proceso inicializado.
 
 3. ¿Qué es un quantum? ¿Dónde se define en el código? ¿Cuánto dura un quantum en xv6-riscv?
-Según los tests realizados, el rendimiento de los procesos iobound aumenta directamente proporcional a la cantidad de procesos iobound en "paralelo".
-Esto ocurre porque el primer proceso iobound es planificado, puesto como SLEEPING esperando el recurso, el segundo proceso hace lo mismo, y así sucesivamente con todos los demás. De esta manera, mientras uno está esperando se ejecuta otro proceso listo y se reducen los tiempos de espera total.
+Quantum es el tiempo fijo que tiene asignado un proceso para usar el cpu. Está definido en start.c, en la función timerinit(), como 1000000 de ciclos de reloj, lo que equivale a 100ms en el simulador. 
 
 4. ¿En qué parte del código ocurre el cambio de contexto en xv6-riscv? ¿En qué funciones un proceso deja de ser ejecutado? ¿En qué funciones se elige el nuevo proceso a ejecutar?
 El cambio de contexto ocurre en la función swtch(), que se encuentra aplicada en las funciones scheduler() y sched(). En scheduler, se busca constantemente programas que estén en estado RUNNABLE. Al encontrar uno, se cambia su estado a RUNNING y se hace un context switch con swtch(), luego de esta función parece ser que el proceso ya no está ejecutando. En sched() también se da un cambio de contexto, y esta función parece ser llamada cuando un programa cambia su estado de RUNNING a otro estado, ya sea por esperar I/O, por esperar la finalización de un evento u otra razón.
@@ -34,7 +33,7 @@ Funciones en las que un proceso deja de ser ejecutado:
     exit(int status): sale del proceso, convirtiéndolo en ZOMBIE. Deja la información en la tabla de procesos para que el padre la recoja. Se hace wakeup() en la función exit() para despertar a un padre que esté en espera (wait), y así recopile la información.
 
 5. ¿El cambio de contexto consume tiempo de un quantum?
-No, al terminar el quantum, el programa se interrumpe y ocurre un cambio de contexto, luego del cual se le da otro quantum al nuevo proceso. El quantum es el tiempo de acceso de un proceso al CPU, mientras que el cambio de contexto es el tiempo que toma el sistema en guardar registros del proceso actual y cargar registros del proceso a ejecutar, entre otras cosas.
+Sí, el cambio de contexto consume una parte del quantum, por lo tanto mientras menor sea el quantum, más porcentaje de él será usado para el cambio de contexto.
 
 ## Segunda Parte: Medir operaciones de cómputo y de entrada/salida  
 
@@ -56,9 +55,7 @@ Al ejecutar cpubench e iobench en segundo plano, el iobench queda en espera -en 
 
 3. ¿Cambia el rendimiento de los procesos iobound con respecto a la cantidad y tipo de procesos que se estén ejecutando en paralelo? ¿Por qué?
 
-Según los tests realizados, los procesos iobound aumentan directamente que toman solamente cuando están en simultáneo a otros procesos iobound, no son afectados por la concurrencia de procesos cpubound.
-
-Sucede por una cuestión de qué recursos son los que utiliza más. Los procesos iobound compiten entre ellos por el disco (aunque en xv6, en este modo de prueba, el "disco" está en la ram), y los cpubound por el CPU.  
+Según los tests realizados, los procesos iobound aumentan su rendimiento cuando están en simultáneo a otros procesos iobound, no son afectados por la concurrencia de procesos cpubound.
 
 4. ¿Cambia el rendimiento de los procesos cpubound con respecto a la cantidad y tipo de procesos que se estén ejecutando en paralelo? ¿Por qué?
 
