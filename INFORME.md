@@ -20,6 +20,8 @@ cuando se espera por eventos específicos.
 
 3. ¿Qué es un quantum? ¿Dónde se define en el código? ¿Cuánto dura un quantum en xv6-riscv?
 Quantum es el tiempo fijo que tiene asignado un proceso para usar el cpu. Está definido en start.c, en la función timerinit(), como 1000000 de ciclos de reloj, lo que equivale a 100ms en el simulador. 
+Como estamos virtualizando xv6, el tiempo REAL es relativo, ya que al estar emulando el codigo, este no corre directamente sobre el cpu, sino que tambien se estan ejecutando otros procesos dentro de la maquina (por ejemplo: visual studio code, terminal,etc)
+si bien la medida de 100 ms, llamarlo una "medida de tiempo" no estaría siendo una definición muy acertada ya que, como hemos mencionado, el tiempo dependerá de varíos factores.
 
 4. ¿En qué parte del código ocurre el cambio de contexto en xv6-riscv? ¿En qué funciones un proceso deja de ser ejecutado? ¿En qué funciones se elige el nuevo proceso a ejecutar?
 El cambio de contexto ocurre en la función swtch(), que se encuentra aplicada en las funciones scheduler() y sched(). En scheduler, se busca constantemente programas que estén en estado RUNNABLE. Al encontrar uno, se cambia su estado a RUNNING y se hace un context switch con swtch(), luego de esta función parece ser que el proceso ya no está ejecutando. En sched() también se da un cambio de contexto, y esta función parece ser llamada cuando un programa cambia su estado de RUNNING a otro estado, ya sea por esperar I/O, por esperar la finalización de un evento u otra razón.
