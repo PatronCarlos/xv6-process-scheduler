@@ -57,17 +57,15 @@ Al ejecutar cpubench e iobench en segundo plano, el iobench queda en espera -en 
 
 3. ¿Cambia el rendimiento de los procesos iobound con respecto a la cantidad y tipo de procesos que se estén ejecutando en paralelo? ¿Por qué?
 
-Según los tests realizados, los procesos iobound aumentan su rendimiento cuando están en simultáneo a otros procesos iobound, no son afectados por la concurrencia de procesos cpubound.
+Según los tests realizados, los procesos iobound aumentan su rendimiento cuando están en simultáneo a otros procesos iobound. Cuando se ejecuta en paralelo a otros procesos cpubound, espera a que estos últimos terminen antes de continuar su ejecución.
 
 4. ¿Cambia el rendimiento de los procesos cpubound con respecto a la cantidad y tipo de procesos que se estén ejecutando en paralelo? ¿Por qué?
 
-Al contrario que los procesos iobound, no se ven afectados practicamente por la concurrencia con otros procesos cpubound, no hay diferencias notables.
-
-Sin embargo sí puede percibirse que hay un aumento del rendimiento en los procesos cpu-bound cuando están intercalados con procesos iobound. Probablemente porque logran un mejor equilibrio en el sistema en cuánto al tiempo de uso del CPU y los I/O.  
+Si cambia, pues el cpu distribuye el quantum entre los procesos simultáneos actuales, sobre todo si son cpubound.  
 
 5. ¿Es adecuado comparar la cantidad de operaciones de cpu con la cantidad de operaciones iobound?
 
-Probablemente haya una manera mejor. Con esta métrica se puede tener una visión general del planificador. 
+No, pues las operaciones IO consumen otros recursos además del cpu y tienen tiempos más largos, pues para estos otros recursos deben pedir permiso de acceso al kernel, lo cual las demora más que las operaciones de cpu, que no requieren permiso previo.
 
 ## todo
 
