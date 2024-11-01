@@ -1,3 +1,7 @@
+# Laboratorio 3: Planificador de procesos  
+
+## Primera parte: Estudiando el planificador xv6-riscv  
+
 1. ¿Qué política de planificación utiliza xv6-riscv para elegir el próximo proceso a ejecutarse?
 Round Robin: tiene switch e interrupciones. Se puede ver el código de scheduler en proc.c. Además, en trap.c aparece la función clockintr, que maneja las interrupciones del temporizador. Pocas políticas interrumpen un proceso a mitad de camino: RR, STCF y MLFQ. Si fuese STCF debería tener una forma de contar cuánto dura cada proceso, pero no lo hace. También sé que no es un multilevel feedback queue, pues no hay división por prioridad, sino que hay una sola lista donde están todos (struct proc proc[NPROC]).
 
@@ -39,9 +43,11 @@ Sí, el cambio de contexto consume una parte del quantum, por lo tanto mientras 
 
 ## Segunda Parte: Medir operaciones de cómputo y de entrada/salida  
 
-### Primera aproximación
+### Experimento 1
 
 [Tablas de Datos de Experimento 1](./tests/experimento1.md)
+
+[Gráficas análiticas de los resultados](./tests/graph-exp-metrics-xv6/graph-exp1/)
 
 1. Describa los parámetros de los programas cpubench e iobench para este experimento (o sea, los define al principio y el valor de N. Tener en cuenta que podrían cambiar en experimentos futuros, pero que si lo hacen los resultados ya no serán comparables).
 
@@ -67,7 +73,12 @@ Si cambia, pues el cpu distribuye el quantum entre los procesos simultáneos act
 
 No, pues las operaciones IO consumen otros recursos además del cpu y tienen tiempos más largos, pues para estos otros recursos deben pedir permiso de acceso al kernel, lo cual las demora más que las operaciones de cpu, que no requieren permiso previo.
 
-Experimento 2
+### Experimento 2
+
+[Tablas de Datos de Experimento 2](./tests/experimento2.md)
+
+[Gráficas análiticas de los resultados](./tests/graph-exp-metrics-xv6/graph-exp2/)
+
 1. ¿Fue necesario modificar las métricas para que los resultados fueran
 comparables? ¿Por qué?
 Sí, pues el quantum era demasiado pequeño como para que iobench mostrara la cantidad de operaciones por tick. En el quantum de 10000 mostraba 0 operaciones por tick, lo que nos llevó a multiplicar la métrica por 100 en iobench, de manera que mostrara la cantidad de operaciones IO cada 100 ticks y así tuviesemos más información para comparar. Lo mismo ocurrió en el quantum de 1000: tuvimos que multiplicar por 1000 para obtener la cantidad de operacione IO cada 1000 ticks. En cpubench también multiplicamos por 10 la métrica para obtener cantidad de operaciones cpu cada 10 ticks, pues el número se hizo muy pequeño.
@@ -88,8 +99,13 @@ Notamos que no cambió la priorización de procesos cpubound por sobre iobound c
 procesos cpubound?
 En este caso ninguno de los dos tipos de procesos se ve beneficiado, pero los iobound son los que peor responden a un quantum más pequeño, por lo que un quantum chico puede llegar a beneficiar a los procesos cpubound.
 
-Experimento 4
+### Experimento 4  
 
-Para análisis responda: ¿Se puede producir starvation en el nuevo planificador?
-Justifique su respuesta.
+[Tablas de Datos de Experimento 4](./tests/experimento4.md)  
+
+[Gráficas análiticas de los resultados](./tests/graph-exp-metrics-xv6/graph-exp4/)  
+
+1. Para análisis responda: ¿Se puede producir starvation en el nuevo planificador?
+Justifique su respuesta.  
+
 Sí se puede producir, pues si un proceso se ejecuta 1 o 2 veces, su prioridad bajará a 1 o 0, y cada nuevo proceso tendrá prioridad 2, por lo tanto si se ejecuta un gran numero de procesos nuevos constantemente, siempre se le dará prioridad a los nuevos, y los procesos con prioridad 1 o 0 no se ejecutarán.
