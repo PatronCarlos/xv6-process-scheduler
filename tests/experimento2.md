@@ -1,24 +1,3 @@
-1. ¿Fue necesario modificar las métricas para que los resultados fueran
-comparables? ¿Por qué?
-Sí, pues el quantum era demasiado pequeño como para que iobench mostrara la cantidad de operaciones por tick. En el quantum de 10000 mostraba 0 operaciones por tick, lo que nos llevó a multiplicar la métrica por 100 en iobench, de manera que mostrara la cantidad de operaciones IO cada 100 ticks y así tuviesemos más información para comparar. Lo mismo ocurrió en el quantum de 1000: tuvimos que multiplicar por 1000 para obtener la cantidad de operacione IO cada 1000 ticks. En cpubench también multiplicamos por 10 la métrica para obtener cantidad de operaciones cpu cada 10 ticks, pues el número se hizo muy pequeño.
-En resumen:
--Quantum de 10000: multiplicamos métrica de iobench * 100, obteniendo operaciones IO cada 100 ticks.
--Quantum de 1000: métrica de iobench * 1000 (operaciones IO cada 1000 ticks), metrica de cpubench * 10 (kilo operaciones de CPU cada 10 ticks).
-Como el iobench 20 demoraba mucho en el quantum de 1000, decidimos repetir los experimentos pero con un N menor. Así, optamos por usar un N=4. También modificamos las métricas iniciales: en vez de cantidad de operaciones por tick, ahora mediremos cantidad de operaciones cada 1000 ticks tanto en cpubench como iobench.
-
-2. ¿Qué cambios se observan con respecto al experimento anterior? ¿Qué
-comportamientos se mantienen iguales?
-Cambios: 
--En iobench podemos observar que a pesar de ser el quantum 10 veces menor al experimento 1, la cantidad de ticks totales aumenta más de 10 veces. pasa de 120-190 a 2085-2400. Esto nos indica que tiene que hacer más interrupciones que antes con un quantum más pequeño, por ende también ocurrirán más context switch, lo cual aumentará el tiempo total. Una de las razones de esto es que no llega a terminar la petición para I/O en un solo quantum por ser muy pequeño, por lo que debe esperar al siguiente quantum para terminar dicha petición y luego esperar a que le den acceso a I/O. Esto explicaría el por qué tiene menos operaciones de I/O cada 1000 ciclos comparado al experimento 1, teniendo en cuenta que para que sea "equivalente" deberíamos multiplicar la métrica por 10 (debido a que usamos un quantum 10 veces más chico que antes).
--Algo similar a lo escrito anteriormente ocurrió en cpubench. Al durar menos el quantum, hay más cambios de contexto y esto disminuye el tiempo de cada quantum, por lo que el quantum pierde buena parte de su tiempo en ese cambio de contexto. Se evidencia en la cantidad total de ticks ocurridos, cada uno de los cuales representa 1 quantum. Esta cantidad es mayor a la esperada, pues si dividimos por 10, entonces deberíamos tener 10 veces más ticks pero en este caso tenemos una cantidad aún mayor.
-
-Notamos que no cambió la priorización de procesos cpubound por sobre iobound cuando se corren simultaneamente cpubench e iobench.
-
-3. ¿Con un quatum más pequeño, se ven beneficiados los procesos iobound o los
-procesos cpubound?
-En este caso ninguno de los dos tipos de procesos se ve beneficiado, pero los iobound son los que peor responden a un quantum más pequeño, por lo que un quantum chico puede llegar a beneficiar a los procesos cpubound.
-
-
 ## Hardware 1: CPU Ryzen 5 3600, RAM 32GB 3200Mhz
 ### Quantum a 10000
 

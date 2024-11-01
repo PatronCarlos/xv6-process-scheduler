@@ -459,13 +459,6 @@ scheduler(void)
         // to release its lock and then reacquire it
         // before jumping back to us.
         p->state = RUNNING;
-        p->n_times_scheduled++;
-        if (p->state == SLEEPING && p->priority < 3) {
-          p->priority++;
-        }
-        if (p->state == RUNNABLE && p->priority > 1 &&) {
-          p->priority--;
-        }
         c->proc = p;
         swtch(&c->context, &p->context);
 
