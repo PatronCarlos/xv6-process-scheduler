@@ -1,6 +1,6 @@
 XV6 Process Scheduler
 
-Spanish version: [README_ES.md](README.md)
+Spanish version: [README_ES.md](README_ES.md)
 
 Overview
 
